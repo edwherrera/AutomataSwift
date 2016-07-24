@@ -3,9 +3,10 @@ protocol StateType : class {
     var transitions: [ String : [StateType] ] { get }
     var isFinal: Bool { get set }
     
-    func getDestinyStates(withTransition: String) -> [StateType]
+    func getDestinyStates(_ withTransition: String) -> [StateType]
     func hasTransition(withValue value: String) -> Bool
-    func setDestinyState(state state:StateType, forTransition:String)
+    func setDestinyState(state:StateType, forTransition:String)
+    func removeTransitionsToState(state: StateType)
     
     init(value: String)
     
@@ -37,7 +38,7 @@ class State : StateType {
         _value = value
     }
 
-    func getDestinyStates(withTransition: String) -> [StateType] {
+    func getDestinyStates(_ withTransition: String) -> [StateType] {
         return _transitions[withTransition] ?? []
     }
     
@@ -45,9 +46,22 @@ class State : StateType {
         return getDestinyStates(value).count > 0
     }
     
-    func setDestinyState(state state: StateType, forTransition: String) {
+    func setDestinyState(state: StateType, forTransition: String) {
         var destinyStates = getDestinyStates(forTransition)
         destinyStates.append(state)
         _transitions.updateValue(destinyStates, forKey: forTransition)
+    }
+    
+    func removeTransitionsToState(state: StateType) {
+        for transition in _transitions {
+            let destinyStates = transition.1.filter({ (stateIt) -> Bool in
+                stateIt.value != state.value
+            })
+            if destinyStates.count == 0 {
+                _transitions.removeValue(forKey: transition.0)
+            } else {
+                _transitions.updateValue(destinyStates, forKey: transition.0)
+            }
+        }
     }
 }
