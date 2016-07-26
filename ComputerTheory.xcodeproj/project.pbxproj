@@ -12,6 +12,8 @@
 		E716DA5B1D3B26E900FAB294 /* Automaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E716DA5A1D3B26E900FAB294 /* Automaton.swift */; };
 		E74C8F701D3E762C00B11CAF /* Graphable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74C8F6F1D3E762C00B11CAF /* Graphable.swift */; };
 		E74C8F721D3E7D0600B11CAF /* Grapher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74C8F711D3E7D0600B11CAF /* Grapher.swift */; };
+		E7F2AAFB1D46EBCD0038176A /* DFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2AAFA1D46EBCD0038176A /* DFA.swift */; };
+		E7F2AAFD1D46EC9A0038176A /* NFA.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2AAFC1D46EC9A0038176A /* NFA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,8 @@
 		E716DA5A1D3B26E900FAB294 /* Automaton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automaton.swift; sourceTree = "<group>"; };
 		E74C8F6F1D3E762C00B11CAF /* Graphable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphable.swift; sourceTree = "<group>"; };
 		E74C8F711D3E7D0600B11CAF /* Grapher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grapher.swift; sourceTree = "<group>"; };
+		E7F2AAFA1D46EBCD0038176A /* DFA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFA.swift; sourceTree = "<group>"; };
+		E7F2AAFC1D46EC9A0038176A /* NFA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				E716DA5A1D3B26E900FAB294 /* Automaton.swift */,
 				E74C8F6F1D3E762C00B11CAF /* Graphable.swift */,
 				E74C8F711D3E7D0600B11CAF /* Grapher.swift */,
+				E7F2AAFA1D46EBCD0038176A /* DFA.swift */,
+				E7F2AAFC1D46EC9A0038176A /* NFA.swift */,
 			);
 			path = ComputerTheory;
 			sourceTree = "<group>";
@@ -132,9 +138,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F2AAFD1D46EC9A0038176A /* NFA.swift in Sources */,
 				E74C8F701D3E762C00B11CAF /* Graphable.swift in Sources */,
 				E716DA5B1D3B26E900FAB294 /* Automaton.swift in Sources */,
 				E716DA521D3B265600FAB294 /* main.swift in Sources */,
+				E7F2AAFB1D46EBCD0038176A /* DFA.swift in Sources */,
 				E716DA591D3B266E00FAB294 /* State.swift in Sources */,
 				E74C8F721D3E7D0600B11CAF /* Grapher.swift in Sources */,
 			);

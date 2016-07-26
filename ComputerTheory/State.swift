@@ -7,6 +7,7 @@ protocol StateType : class {
     func hasTransition(withValue value: String) -> Bool
     func setDestinyState(state:StateType, forTransition:String)
     func removeTransitionsToState(state: StateType)
+    func getAllExits() -> [StateType]
     
     init(value: String)
     
@@ -48,7 +49,9 @@ class State : StateType {
     
     func setDestinyState(state: StateType, forTransition: String) {
         var destinyStates = getDestinyStates(forTransition)
-        destinyStates.append(state)
+        if destinyStates.contains({ destState in state.value == destState.value }) {
+            destinyStates.append(state)
+        }
         _transitions.updateValue(destinyStates, forKey: forTransition)
     }
     
@@ -63,5 +66,17 @@ class State : StateType {
                 _transitions.updateValue(destinyStates, forKey: transition.0)
             }
         }
+    }
+    
+    func getAllExits() -> [StateType] {
+        var exits = [StateType]()
+        for (_, destStates) in _transitions {
+            for state in destStates {
+                if !exits.contains({exit in exit.value == state.value}) {
+                    exits.append(state)
+                }
+            }
+        }
+        return exits
     }
 }
